@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/recipe-detail.css">
+  <title>Oreo Recipe</title>
+  <script src="https://kit.fontawesome.com/9506d7bd71.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <!-- 전체 래퍼 -->
+  <div class="wrapper">
+    <!-- 왼쪽 헤더 -->
+    <div class="left-header">
+      <button class="home">
+        <a href="index.html"><i class="fa-solid fa-house"></i></a>
+      </button>
+      <button class="menu-button" onclick="toggleMenu()">
+        <i class="fa-solid fa-cookie-bite"></i>
+      </button>
+      <div class="title">Oreo</div>
+    </div>
+
+    <!-- 오른쪽 컨테이너 (main-container) -->
+    <div class="main-container">
+      <!-- main-left -->
+      <div class="main-left">
+        <div class="recipe">
+            <h2>타르트지</h2>
+            <p>1. 가루류들은 채쳐서 프로세서에 버터와 함께 넣고 끊어서 돌린다.</p>
+            <p>버터들이 작아지면 계란을 넣고 뭉쳐질때(큰덩어리가 될때)까지 돌린다. </p>
+            <p>3. 프라제(스크래퍼로 반죽 공기를 빼는) 과정을 해주고 원형을 만든 후 냉장고 30분 휴지 
+            </p>
+            <p>4. 최대한 원형을 유지하며 펴준 후 틀 위에 올리고 옆면부터 눌러 씌운다 
+            </p>
+            <p>5. 포크로 구멍을 내주고 둥근 유산지를 깔고 누름돌을 올리고 굽는다 170도 15분</p>
+        </div>
+        <div class="recipe">
+            <h2>브라우니</h2>
+                <p>1. 버터,커버춰 전자렌지에 끊어서 녹이고 잘섞어준 후 한김 식힌다</p>
+                <p>2. 계란,설탕 잘 섞은 후 식은 초콜릿 넣고 섞기 </p>
+                <p>3. 가루류 채쳐서 넣고 섞은후 쿠키분태 넣고 섞기기</p>
+                <p>4. 타르트지 위에 넣고 160도 25분</p>
+        </div>
+      </div>
+      <!-- main-right -->
+      <div class="main-right">
+        <div class="recipe">
+            <h2>화이트 크림</h2>
+            <p>1. 크림치즈 휘핑기로 풀어준다.</p> 
+            <p>2. 뭉친게 없어지면 설탕넣고 섞섞</p> 
+            <p>3. 부피가 커지면 계란,바닐라익스트랙 넣고 섞섞</p> 
+            <p>4. 전분,생크림,오레오 순서대로 넣고 섞섞</p> 
+            <p>6. 170도 20분~30분</p> 
+        <div class="recipe">
+            <h2>생크림</h2>
+            <p>1. 크림치즈를 조금 풀어준후 생크림 넣고 휘핑</p>
+            <p>2. 저속으로 시작해 단단하게 휘핑</p>
+            <P>3. 쿠키분태 넣고 한번 더 섞기기</P>
+            <p>*10도 이하로 온도 유지, 모든 재료 차갑게</p>
+        </div>
+        <div class="recipe">
+            <h1>데코</h1>
+            <p>오레오 데코</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 사이드 메뉴 -->
+  <div class="side-menu" id="sideMenu">
+    <button class="close-button" onclick="toggleMenu()">✖</button>
+    <a href="/html/ingredients/1.Chocolate.html"><div class="cell" data-number="01"><p>Chocolate</p></div></a>
+    <a href="/html/ingredients/2.Matcha.html"><div class="cell" data-number="02"><p>Matcha</p></div></a>
+    <a href="/html/ingredients/3.Strawberry.html"><div class="cell" data-number="03"><p>Straw<br>berry<br></p></div></a>
+    <a href="/html/ingredients/4.SweetPotato.html"><div class="cell" data-number="04"><p>Sweet Potato</p></div></a>
+    <a href="/html/ingredients/5.Blueberry.html"><div class="cell" data-number="05"><p>Blue<br>berry<br></p></div></a>
+    <a href="/html/ingredients/6.Matcha-Choco.html"><div class="cell" data-number="06"><p>Matcha<br>Choco<br></p></div></a>
+    <a href="/html/ingredients/7.Mugwort-Injeolm.html"><div class="cell" data-number="07"><p>Mugwort Injeolmi</p></div></a>
+    <a href="/html/ingredients/8.Black-Sesame.html"><div class="cell" data-number="08"><p>Black Sesame</p></div></a>
+    <a href="/html/ingredients/9.Black-Sesame-Injeolmi.html"><div class="cell" data-number="09"><p>Black Sesame Injeolmi</p></div></a>
+    <a href="/html/ingredients/10.Oreo.html"><div class="cell" data-number="10"><p>Oreo</p></div></a>
+    <a href="/html/ingredients/11.Dubai.html"><div class="cell" data-number="11"><p>Dubai</p></div></a>
+    <a href="/html/ingredients/12.Pumpkin.html"><div class="cell" data-number="12"><p>Pumpkin</p></div></a>
+    <a href="/html/ingredients/13.Peach.html"><div class="cell" data-number="13"><p>Peach</p></div></a>
+    <a href="/html/ingredients/14.Chestnut.html"><div class="cell" data-number="14"><p>Chestnut</p></div></a>
+    <a href="/html/ingredients/15.Lotus-Biscoff-Brownie.html"><div class="cell" data-number="15"><p>Lotus Biscoff Brownie</p></div></a>
+    <a href="/html/ingredients/16.Plain-Scone.html"><div class="cell" data-number="16"><p>Plain Scone</p></div></a>
+    <a href="/html/ingredients/17.Coffee-Chocolate-Scone.html"><div class="cell" data-number="17"><p>Coffee Chocolate Scone</p></div></a>
+    <a href="/html/ingredients/18.Salted-Caramel-Scone.html"><div class="cell" data-number="18"><p>Salted Caramel Scone</p></div></a>
+    <div class="cell" data-number="19"><p></p></div>
+    <div class="cell" data-number="20"><p></p></div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('sideMenu');
+      menu.classList.toggle('open');
+    }
+
+  </script>
+</body>
+</html>
