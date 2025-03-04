@@ -1,0 +1,151 @@
+@font-face {
+    font-family: 'UhBeeSe_hyun';
+    src: url('https://gcore.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeSe_hyun.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    }
+
+
+body {
+    font-family: 'UhBeeSe_hyun';
+    background-color: black;
+    color: black;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+header {
+    background-color: black;
+    color: white;
+    padding: 40px;
+    font-size: 40px;
+    font-weight: bold;
+}
+main {
+    background-color: white;
+    padding: 50px 13px 0px 13px;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+section {
+    flex: 1;
+    min-width: 200px;
+    margin: 10px;
+    height: 524px;
+}
+h2 {
+    border-bottom: 2px solid black;
+    padding-bottom: 5px;
+    margin-top: 8px;
+}
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+td {
+    padding: 5px;
+    border-bottom: 1px dashed black;
+}
+td:last-child {
+    text-align: right;
+}
+
+p.recipe-text {
+    position: absolute;
+    bottom: -3%;
+    right: 4%;
+    font-size: 40px;
+}
+
+/* 메뉴 버튼 스타일 */
+.menu-button {
+position: fixed;
+top: 48px;
+left: 129px;
+color: white;
+font-size: 24px;
+cursor: pointer;
+padding: 10px;
+border-radius: 5px;
+background: none;   /* 배경 제거 */
+border: none;
+}
+
+/* 사이드 메뉴 스타일 */
+.side-menu {
+position: fixed;
+top: 0;
+left: -250px;
+width: 250px;
+height: 100%;
+background: #333;
+color: white;
+padding-top: 60px;
+padding-bottom: 20px; /* 하단 패딩 추가 */
+transition: 0.3s;
+overflow-y: auto;
+}
+
+.side-menu a {
+display: block;
+color: white;
+text-decoration: none;
+}
+
+.side-menu a:hover {
+background: #575757;
+}
+
+.side-menu.open {
+left: 0;
+}
+
+/* 닫기 버튼 스타일 */
+.close-button {
+position: absolute;
+top: 10px;
+right: 10px;
+background: none;
+border: none;
+font-size: 24px;
+color: white;
+cursor: pointer;
+}
+
+.cell p {
+word-wrap: break-word; /* 긴 단어가 자동 줄바꿈되도록 설정 */
+white-space: normal;   /* 줄바꿈을 허용 */
+text-align: center;    /* 텍스트 가운데 정렬 */
+}
+
+.cell {
+min-height: 60px;  /* 최소 높이를 늘려서 잘리지 않도록 설정 */
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.home {
+color: white;
+top: 55px;
+left: 4%;
+position: fixed;
+width: 39px;
+height: 34px;
+font-size: 21px;
+background: none;
+border: none;
+}
+
+.home a {
+text-decoration: none;
+color: white;
+}
+
+
+section a {
+color: rgb(0, 0, 0);
+text-decoration: none;
+}
