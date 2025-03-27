@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>출퇴근 기록부</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: center;
+    }
+    .selected {
+      background-color: #dff0d8;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      cursor: pointer;
+    }
+    .right {
+      float: right;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    a.logo {
+      font-family: 'Notebook';
+      font-size: 24px;
+      font-weight: bold;
+      text-decoration: none;
+      color: #333;
+      margin-bottom: 20px;
+      display: inline-block;
+    }
+  </style>
+</head>
+<body>
+  <a href="#" class="logo">Roya</a>
+  <h2>출퇴근 기록부</h2>
+  <button onclick="goToAdmin()">관리자 모드</button>
+
+  <table>
+    <thead>
+      <tr>
+        <th>직원명</th><th>출근</th><th>퇴근</th><th>근무시간</th>
+      </tr>
+    </thead>
+    <tbody id="record-body">
+      <!-- 직원 목록 자동 삽입 -->
+    </tbody>
+  </table>
+
+  <div>
+    <button onclick="checkIn()">출근</button>
+    <button onclick="checkOut()">퇴근</button>
+    <span class="right" id="clock"></span>
+  </div>
+
+  <script>
+    let selectedRow = null;
+
+    function goToAdmin() {
+      window.location.href = "/html/근태기록/관리자 로그인.html";
+    }
+
+    function updateClock() {
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const date = String(now.getDate()).padStart(2, '0');
+      const hour = String(now.getHours()).padStart(2, '0');
+      const minute = String(now.getMinutes()).padStart(2, '0');
+      const second = String(now.getSeconds()).padStart(2, '0');
+      document.getElementById("clock").textContent = `${year}년 ${month}월 ${date}일 ${hour}:${minute}:${second}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    function selectRow(row) {
+      if (selectedRow) selectedRow.classList.remove("selected");
+      selectedRow = row;
+      row.classList.add("selected");
+    }
+
+    function checkIn() {
+      if (!selectedRow) return alert("직원을 선택해주세요.");
+      const now = new Date();
+      const time = now.toTimeString().slice(0,5);
+      selectedRow.cells[1].textContent = time;
+      selectedRow.dataset.checkin = time;
+    }
+
+    function checkOut() {
+      if (!selectedRow) return alert("직원을 선택해주세요.");
+      const now = new Date();
+      const time = now.toTimeString().slice(0,5);
+      selectedRow.cells[2].textContent = time;
+      selectedRow.dataset.checkout = time;
+
+      const checkInTime = selectedRow.dataset.checkin;
+      if (checkInTime) {
+        const [sh, sm] = checkInTime.split(":"), [eh, em] = time.split(":");
+        const total = (parseInt(eh)*60 + parseInt(em)) - (parseInt(sh)*60 + parseInt(sm));
+        const hours = Math.floor(total / 60);
+        selectedRow.cells[3].textContent = hours;
+        saveRecord(selectedRow.cells[0].textContent, checkInTime, time, hours);
+      }
+    }
+
+    function saveRecord(name, checkIn, checkOut, hours) {
+      const records = JSON.parse(localStorage.getItem("workRecords")) || [];
+      const today = new Date();
+      const dateStr = today.toISOString().split("T")[0];
+      const filtered = records.filter(r => !(r.date === dateStr && r.name === name));
+      filtered.push({ name, date: dateStr, checkIn, checkOut, hours });
+      localStorage.setItem("workRecords", JSON.stringify(filtered));
+    }
+
+    function loadStaffList() {
+      const tbody = document.getElementById("record-body");
+      const staffData = JSON.parse(localStorage.getItem("staffList")) || [];
+      staffData.filter(s => s.status === "재직").forEach(staff => {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `<td>${staff.name}</td><td></td><td></td><td></td>`;
+        tr.onclick = function() { selectRow(this); };
+        tbody.appendChild(tr);
+      });
+    }
+
+
+    window.onload = function() {
+      loadStaffList();
+    };
+  </script>
+</body>
+</html>
