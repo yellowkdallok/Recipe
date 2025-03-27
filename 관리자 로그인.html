@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>관리자 로그인</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    @font-face {
+      font-family: 'Notebook';
+      src: url('Notebook.otf') format('opentype');
+    }
+
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: flex;
+      height: 100vh;
+    }
+    .left {
+      flex: 1;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .right {
+        font-family: 'Notebook';
+      flex: 1;
+      background-color: black;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 36px;
+      font-weight: bold;
+    }
+    input[type="password"] {
+      padding: 12px 16px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      margin-top: 8px;
+    }
+    button {
+        font-family: 'Notebook';
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 6px;
+      border: none;
+      background-color: #333;
+      color: white;
+    }
+    .error {
+      color: red;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="left">
+      <label for="password">password</label>
+      <input type="password" id="password" placeholder="비밀번호를 입력하세요" />
+      <button onclick="checkPassword()">입장</button>
+      <div class="error" id="errorMsg"></div>
+    </div>
+    <div class="right">
+      ROYA CAFE
+    </div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      const error = document.getElementById('errorMsg');
+
+      if (input === '00862') {
+        window.location.href = '조회.html';
+      } else {
+        error.textContent = '비밀번호가 틀렸습니다.';
+      }
+    }
+  </script>
+</body>
+</html>
